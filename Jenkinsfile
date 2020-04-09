@@ -3,8 +3,6 @@ pipeline {
   stages {
     stage('Build') {
       parallel {
-        
-
         stage('Build') {
           steps {
             sh 'mvn install'
@@ -12,10 +10,41 @@ pipeline {
           }
         }
 
+        stage('') {
+          steps {
+            sh 'mvn test'
+          }
+        }
+
       }
     }
 
-    
+    stage('reports') {
+      steps {
+        script {
+          allure([
+            includeProperties: false,
+            jdk: '',
+            properties: [],
+            reportBuildPolicy: 'ALWAYS',
+            results: [[path: '/allure-results']]
+          ])
+
+
+          // publish html
+          publishHTML([
+            allowMissing: false,
+            alwaysLinkToLastBuild: false,
+            keepAll: false,
+            reportDir: 'build',
+            reportFiles: 'TestExecutionReport.html',
+            reportName: 'Extent HTML Report',
+            reportTitles: ''
+          ])
+        }
+
+      }
+    }
 
   }
   tools {
