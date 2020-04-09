@@ -3,13 +3,9 @@ pipeline {
   stages {
     stage('Build') {
       parallel {
-        stage('Build') {
-          steps {
-            sh 'mvn clean test'
-          }
-        }
+        
 
-        stage('') {
+        stage('Build') {
           steps {
             sh 'mvn install'
             sh 'mvn spring-boot:run'
