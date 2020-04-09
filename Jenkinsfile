@@ -1,8 +1,11 @@
 pipeline {
   agent any
   stages {
+    
     stage('Build') {
       parallel {
+        
+        //1
         stage('Build') {
           steps {
             sh 'mvn install'
@@ -10,41 +13,18 @@ pipeline {
           }
         }
 
-        stage('') {
+        //2
+        stage('test') {
           steps {
             sh 'mvn test'
           }
         }
+        
 
       }
     }
 
-    stage('reports') {
-      steps {
-        script {
-          allure([
-            includeProperties: false,
-            jdk: '',
-            properties: [],
-            reportBuildPolicy: 'ALWAYS',
-            results: [[path: '/allure-results']]
-          ])
-
-
-          // publish html
-          publishHTML([
-            allowMissing: false,
-            alwaysLinkToLastBuild: false,
-            keepAll: false,
-            reportDir: 'build',
-            reportFiles: 'TestExecutionReport.html',
-            reportName: 'Extent HTML Report',
-            reportTitles: ''
-          ])
-        }
-
-      }
-    }
+    
 
   }
   tools {
