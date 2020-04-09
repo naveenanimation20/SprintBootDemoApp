@@ -7,17 +7,19 @@ pipeline {
       }
     }
     
-    stage('Deploye') {
+    stage('Unit Test') {
+      steps {
+        sh 'mvn test'
+      }
+    }
+    
+    stage('Deployement') {
       steps {
         sh 'mvn spring-boot:run'
       }
     }
 
-    stage('test') {
-      steps {
-        sh 'mvn test'
-      }
-    }
+    
 
   }
   tools {
