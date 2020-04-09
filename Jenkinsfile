@@ -4,6 +4,11 @@ pipeline {
     stage('Build') {
       steps {
         sh 'mvn install'
+      }
+    }
+    
+    stage('Deploye') {
+      steps {
         sh 'mvn spring-boot:run'
       }
     }
