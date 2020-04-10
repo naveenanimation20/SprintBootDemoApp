@@ -16,6 +16,7 @@ pipeline {
     stage('Deployement') {
       steps {
         sh 'mvn spring-boot:run'
+        sh 'sh exit 0'
       }
     }
 
