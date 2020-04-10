@@ -25,7 +25,7 @@ pipeline {
           steps {
             sh '''echo -n "Waiting"
 while true; do
-        STATUS_CODE=`curl -X GET http://127.0.0.1:3456`
+        STATUS_CODE=`curl -X GET http://localhost:3456`
         if [[ $STATUS_CODE -eq 404 ]]; then
                 echo -n "."
                 sleep 2
