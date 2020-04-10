@@ -15,7 +15,7 @@ pipeline {
 
     stage('UI Test Pipeline') {
       steps {
-        build 'Jan2020POMSeries'
+        build(job: 'Jan2020POMSeries', propagate: true)
       }
     }
 
