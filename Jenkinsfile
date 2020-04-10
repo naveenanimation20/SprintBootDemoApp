@@ -25,11 +25,8 @@ pipeline {
           steps {
             sh '''commande () {
 	    curl -X GET \\
-	         
-	         -d@- \\
-	         http://127.0.0.1:3456 <<EOF
+	         http://127.0.0.1:3456
 	    
-	EOF
 	}'''
             }
           }
