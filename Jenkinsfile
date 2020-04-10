@@ -25,8 +25,10 @@ pipeline {
           steps {
             sh '''#!/bin/bash
 
-def response = sh(\'curl -b session -X GET http://127.0.0.1:3456\')
-echo response'''
+int status = sh(script: "curl -sLI -w \'%{http_code}\' $url -o http://127.0.0.1:3456", returnStdout: true)
+
+
+echo status'''
           }
         }
 
