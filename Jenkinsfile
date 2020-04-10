@@ -23,7 +23,7 @@ pipeline {
 
         stage('UI Test') {
           steps {
-            sh '''response=$(curl -s -o /dev/null -w "%{http_code}\\n" http://http://127.0.0.1:3456/)
+            sh '''response=$(curl -s -o /dev/null -w "%{http_code}\\n" http://127.0.0.1:3456)
 echo response
 if [ "$response" != "200" ]
 then
