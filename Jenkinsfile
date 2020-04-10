@@ -23,12 +23,12 @@ pipeline {
 
         stage('UI Test') {
           steps {
-            sh '''#!/bin/bash
-
-int status = sh(script: "curl -sLI -w \'%{http_code}\' $url -o http://127.0.0.1:3456", returnStdout: true)
-
-
-echo status'''
+            sh '''response=$(curl -s -o /dev/null -w "%{http_code}\\n" http://http://127.0.0.1:3456/)
+echo response
+if [ "$response" != "200" ]
+then
+ exit 1
+fi'''
           }
         }
 
