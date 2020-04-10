@@ -16,6 +16,7 @@ pipeline {
     stage('Deployement') {
       steps {
         sh 'mvn spring-boot:run '
+        build job: 'Jan2020POMSeries'
       }
     }
 
