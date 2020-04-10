@@ -23,19 +23,16 @@ pipeline {
 
         stage('UI Test') {
           steps {
-            sh '''commande () {
-	    curl -X GET \\
-	         http://127.0.0.1:3456
-	    
-	}'''
-            }
+            sh '''response=`curl -k -s -X GET --url "http://127.0.0.1:3456"`
+echo "${response}"'''
           }
-
         }
-      }
 
+      }
     }
-    tools {
-      maven 'M3'
-    }
+
   }
+  tools {
+    maven 'M3'
+  }
+}
