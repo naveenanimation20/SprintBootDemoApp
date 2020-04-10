@@ -14,9 +14,23 @@ pipeline {
     }
 
     stage('Deployement') {
-      steps {
-        sh 'mvn spring-boot:run'
-        sh 'sh exit 0'
+      parallel {
+        stage('Deployement') {
+          steps {
+            sh 'mvn spring-boot:run '
+          }
+        }
+
+        stage('') {
+          steps {
+            sh '''TEST="curl http://127.0.0.1:3456
+echo $TEST
+
+RESPONSE=`$TEST`
+echo $RESPONSE'''
+          }
+        }
+
       }
     }
 
