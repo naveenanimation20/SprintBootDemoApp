@@ -25,8 +25,8 @@ pipeline {
           steps {
             sh '''#!/bin/bash
 
-def response = sh(script: \'curl http://127.0.0.1:3456\', returnStdout: true)
-'''
+def response = sh(\'curl -b session -X GET http://127.0.0.1:3456\')
+echo response'''
           }
         }
 
