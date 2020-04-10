@@ -23,8 +23,17 @@ pipeline {
 
         stage('UI Test') {
           steps {
-            sh '''response=`curl -k -s -X GET --url "http://127.0.0.1:3456"`
-echo "${response}"'''
+            sh '''echo -n "Waiting"
+while true; do
+        STATUS_CODE=`curl -X GET http://127.0.0.1:3456`
+        if [[ $STATUS_CODE -eq 404 ]]; then
+                echo -n "."
+                sleep 2
+        else
+                break
+        fi
+done
+echo ""'''
           }
         }
 
