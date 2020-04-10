@@ -14,29 +14,8 @@ pipeline {
     }
 
     stage('Deployement') {
-      parallel {
-        stage('Deployement') {
-          steps {
-            sh 'mvn spring-boot:run '
-          }
-        }
-
-        stage('UI Test') {
-          steps {
-            sh '''echo -n "Waiting"
-while true; do
-        STATUS_CODE=`curl -X GET http://localhost:3456`
-        if [[ $STATUS_CODE -eq 404 ]]; then
-                echo -n "."
-                sleep 2
-        else
-                break
-        fi
-done
-echo ""'''
-          }
-        }
-
+      steps {
+        sh 'mvn spring-boot:run '
       }
     }
 
