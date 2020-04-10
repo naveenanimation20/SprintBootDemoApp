@@ -12,12 +12,6 @@ pipeline {
         sh 'mvn test'
       }
     }
-
-    stage('Deployement') {
-      steps {
-        sh 'mvn spring-boot:run', propagate:false
-      }
-    }
     
     stage('UI Test Pipeline') {
       steps {
