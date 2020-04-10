@@ -21,13 +21,20 @@ pipeline {
           }
         }
 
-        stage('') {
+        stage('UI Test') {
           steps {
-            sh '''TEST="curl http://127.0.0.1:3456
-echo $TEST
+            sh '''#!/bin/bash
 
-RESPONSE=`$TEST`
-echo $RESPONSE'''
+
+
+commande () {
+    curl -X GET \\
+         
+         -d@- \\
+         http://127.0.0.1:3456 <<EOF
+    
+EOF
+}'''
           }
         }
 
