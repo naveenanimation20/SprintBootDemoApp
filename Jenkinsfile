@@ -12,10 +12,10 @@ pipeline {
         sh 'mvn test'
       }
     }
-    
+
     stage('UI Test Pipeline') {
       steps {
-        build job: 'Jan2020POMSeries'
+        build 'Jan2020POMSeries'
       }
     }
 
