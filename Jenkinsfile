@@ -25,16 +25,8 @@ pipeline {
           steps {
             sh '''#!/bin/bash
 
-
-
-commande () {
-    curl -X GET \\
-         
-         -d@- \\
-         http://127.0.0.1:3456 <<EOF
-    
-EOF
-}'''
+def response = sh(script: \'curl http://127.0.0.1:3456\', returnStdout: true)
+'''
           }
         }
 
