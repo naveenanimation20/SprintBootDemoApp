@@ -15,7 +15,12 @@ pipeline {
 
     stage('Deployement') {
       steps {
-        sh 'mvn spring-boot:run '
+        sh 'mvn spring-boot:run', propagate:false
+      }
+    }
+    
+    stage('UI Test Pipeline') {
+      steps {
         build job: 'Jan2020POMSeries'
       }
     }
