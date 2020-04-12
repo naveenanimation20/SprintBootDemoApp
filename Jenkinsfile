@@ -59,16 +59,18 @@ pipeline {
         }
         
         
-        stage("speak") {
-          steps{
-             slackSend color: '#BADA55', message: 'Build and Deployment is successfully done', channel: 'general'
-          }
-        }
+        
         
 
       }
       
     }
+    
+    stage("speak") {
+          steps{
+             slackSend color: '#BADA55', message: 'Build and Deployment is successfully done', channel: 'general'
+          }
+        }
 
   }
   tools {
