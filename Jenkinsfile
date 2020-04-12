@@ -46,7 +46,7 @@ if [ $status -eq $successStatus ]; then
 else
     echo "UI test not running"
 fi'''
-            build 'Jan2020POMSeries'
+          build job: 'Jan2020POMSeries', propagate: true, wait: true
           }
         }
 
