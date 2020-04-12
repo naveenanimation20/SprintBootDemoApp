@@ -43,10 +43,10 @@ echo $status
 
 if [ $status -eq $successStatus ]; then
    echo "UI test running"
+   sh \'mvn test\'
 else
     echo "UI test not running"
 fi'''
-          build job: 'Jan2020POMSeries/master', propagate: true, wait: true
           }
         }
 
