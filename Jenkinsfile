@@ -38,7 +38,7 @@ while [ $status != $successStatus ]; do
   fi
 done
 
-if [status = 1]
+if [status == 1]
    echo "UI test running"
 fi    '''
           }
