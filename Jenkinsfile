@@ -59,6 +59,12 @@ fi'''
         }
 
       }
+      
+      stage("speak") {
+        slackSend color: '#BADA55', message: 'Build and Deployment is successfully done', channel: 'general'
+    }
+      
+      
     }
 
   }
