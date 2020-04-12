@@ -38,7 +38,10 @@ while [ $status != $successStatus ]; do
   fi
 done
 
-if [$status -eq 1]; then
+echo "status is:"
+echo $status
+
+if [ $status -eq $successStatus ]; then
    echo "UI test running"
 else
     echo "UI test not running"
