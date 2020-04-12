@@ -43,7 +43,7 @@ echo $status
 
 if [ $status -eq $successStatus ]; then
    echo "UI test running"
-   git(url: \'https://github.com/naveenanimation20/Jan2020POMSeries\', branch: \'master\', changelog: true)
+   git url: \'https://github.com/naveenanimation20/Jan2020POMSeries\', branch: \'master\', changelog: true
    sh \'mvn test -Denv=qa -Dbrowser=firefox\'
 else
     echo "UI test not running"
