@@ -43,10 +43,11 @@ echo $status
 
 if [ $status -eq $successStatus ]; then
    echo "UI test running"
-   sh \'mvn test\'
+   mvn test
 else
     echo "UI test not running"
 fi'''
+            sh 'mvn test'
           }
         }
 
