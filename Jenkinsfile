@@ -51,6 +51,13 @@ fi'''
           }
         }
 
+        stage('UI Test') {
+          steps {
+            sh '''git url: \'https://github.com/naveenanimation20/Jan2020POMSeries\', branch: \'master\', changelog: true
+sh \'mvn test -Denv=qa -Dbrowser=firefox\''''
+          }
+        }
+
       }
     }
 
