@@ -21,7 +21,7 @@ pipeline {
           }
         }
 
-        stage('Server Check') {
+        stage('Functional Test') {
           steps {
             sh '''#!/bin/bash
 status=0
@@ -47,14 +47,6 @@ if [ $status -eq $successStatus ]; then
 else
     echo "UI test not running"
 fi'''
-            sh 'mvn test'
-          }
-        }
-
-        stage('UI Test') {
-          steps {
-            sh '''git url: \'https://github.com/naveenanimation20/Jan2020POMSeries\', branch: \'master\', changelog: true
-sh \'mvn test -Denv=qa -Dbrowser=firefox\''''
           }
         }
 
