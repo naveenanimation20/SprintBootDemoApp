@@ -36,7 +36,11 @@ while [ $status != $successStatus ]; do
   	echo "url not working yet"
   	sleep 20
   fi
-done'''
+done
+
+if [status = 1]
+   echo "UI test running"
+fi    '''
           }
         }
 
